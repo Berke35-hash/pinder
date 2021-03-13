@@ -15,7 +15,7 @@ namespace Entity.Concrete
         public string Location { get; set; }
         public DateTime MissinDate { get; set; }
         public bool Status { get; set; }
-
+       
 
     }
 }
