@@ -16,6 +16,7 @@ namespace Entity.Concrete
         public DateTime MissinDate { get; set; }
         public bool Status { get; set; }
         public int MyPr { get; set; }
+        public int fuck { get; set; }
 
     }
 }
