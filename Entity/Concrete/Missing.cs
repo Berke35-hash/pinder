@@ -17,6 +17,7 @@ namespace Entity.Concrete
         public bool Status { get; set; }
         public int MyPr { get; set; }
         public int fuck { get; set; }
+        int a = 2;
 
     }
 }
