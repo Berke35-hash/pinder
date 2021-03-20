@@ -7,7 +7,7 @@ using System.Text;
 
 namespace DataAccess.Concrete
 {
-    public class EfCategoryDal :EfEntityRepositoryBase<Category, PinderContext>, ICategoryDal 
+    public class EfCommentDal :EfEntityRepositoryBase<Comment, PinderContext>, ICommentDal 
     {
 
     }
