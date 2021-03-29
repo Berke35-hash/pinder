@@ -1,4 +1,5 @@
-﻿using Entity.Concrete;
+﻿using Core.Utilities.Results.Abstract;
+using Entity.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,9 +8,9 @@ namespace Business.Abstract
 {
     public interface ICommentService
     {
-        void Add(Comment comment);
-        void Update(Comment comment);
-        void Delete(Comment comment);
+        IResult Add(Comment comment);
+        IResult Update(Comment comment);
+        IResult Delete(Comment comment);
 
     }
 }

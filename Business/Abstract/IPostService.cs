@@ -1,4 +1,5 @@
-﻿using Entity.Concrete;
+﻿using Core.Utilities.Results.Abstract;
+using Entity.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,10 +8,10 @@ namespace Business.Abstract
 {
     public interface IPostService
     {
-        Post GetById(int postId);
-        List<Post> GetList();
-        void Add(Post post);
-        void Update(Post post);
-        void Delete(Post post);
+        IDataResult<Post> GetById(int postId);
+        IDataResult<List<Post>> GetList();
+        IResult Add(Post post);
+        IResult Update(Post post);
+        IResult Delete(Post post);
     }
 }

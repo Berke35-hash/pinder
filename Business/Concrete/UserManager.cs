@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Core.Entities.Concrete;
 using DataAccess.Abstract;
 using Entity.Concrete;
 using System;
@@ -25,9 +26,9 @@ namespace Business.Concrete
             _userDal.Delete(user);
         }
 
-        public User GetById(int userId)
+        public List<OperationClaim> GetClaims(User user)
         {
-            return _userDal.Get(p => p.Id == userId);
+            return _userDal.GetClaims(user);
         }
 
         public void GetByName(string name)

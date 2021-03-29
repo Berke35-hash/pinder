@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Core.Utilities.Results.Abstract;
+using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
 using Entity.Concrete;
 using System;
@@ -16,29 +18,32 @@ namespace Business.Concrete
             _postDal = postDal;
         }
 
-        public void Add(Post post)
+        public IResult Add(Post post)
         {
             _postDal.Add(post);
+            return new SuccessResult();
         }
 
-        public void Delete(Post post)
+        public IResult Delete(Post post)
         {
             _postDal.Delete(post);
+            return new SuccessResult();
         }
 
-        public Post GetById(int postId)
+        public IDataResult<Post> GetById(int postId)
         {
-            return _postDal.Get(p => p.PostId == postId);
+            return new SuccessDataResult<Post>(_postDal.Get(p => p.PostId == postId));
         }
 
-        public List<Post> GetList()
+        public IDataResult<List<Post>> GetList()
         {
-            return _postDal.GetAll().ToList();
+            return new SuccessDataResult<List<Post>>(_postDal.GetAll().ToList());
         }
 
-        public void Update(Post post)
+        public IResult Update(Post post)
         {
             _postDal.Update(post);
+            return new SuccessResult();
         }
     }
 }
