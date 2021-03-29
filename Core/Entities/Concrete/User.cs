@@ -12,7 +12,8 @@ namespace Entity.Concrete
         public string LastName { get; set; }
         public string Email { get; set; }
         public int PhoneNumber { get; set; }
-        public int Password { get; set; }
+        public byte[] PasswordSalt { get; set; }
+        public byte[] PasswordHash { get; set; }
         public string Address { get; set; }
 
     }
