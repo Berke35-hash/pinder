@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.ValidationsRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
@@ -18,6 +20,7 @@ namespace Business.Concrete
             _postDal = postDal;
         }
 
+        [ValidationAspect(typeof(PostValidator))]
         public IResult Add(Post post)
         {
             _postDal.Add(post);
