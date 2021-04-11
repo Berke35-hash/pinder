@@ -13,6 +13,7 @@ namespace Business.Concrete
 {
     public class AuthManager : IAuthService
     {
+        int a = 5;
         private IUserService _userService;
         private ITokenHelper _tokenHelper;
 
