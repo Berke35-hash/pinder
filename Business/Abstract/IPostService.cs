@@ -9,7 +9,7 @@ namespace Business.Abstract
     public interface IPostService
     {
         IDataResult<Post> GetById(int Id);
-        IDataResult<List<Post>> GetList();
+        IDataResult<List<Post>> GetAll();
         IResult Add(Post post);
         IResult Update(Post post);
         IResult Delete(Post post);
