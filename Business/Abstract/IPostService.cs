@@ -8,7 +8,7 @@ namespace Business.Abstract
 {
     public interface IPostService
     {
-        IDataResult<Post> GetById(int postId);
+        IDataResult<Post> GetById(int Id);
         IDataResult<List<Post>> GetList();
         IResult Add(Post post);
         IResult Update(Post post);

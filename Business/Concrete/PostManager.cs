@@ -35,7 +35,7 @@ namespace Business.Concrete
 
         public IDataResult<Post> GetById(int postId)
         {
-            return new SuccessDataResult<Post>(_postDal.Get(p => p.PostId == postId));
+            return new SuccessDataResult<Post>(_postDal.Get(p => p.Id == postId));
         }
 
         public IDataResult<List<Post>> GetList()

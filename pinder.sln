@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{F11E58C1-9292-49E6-811D-CB779C8A2350}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{F11E58C1-9292-49E6-811D-CB779C8A2350}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entity", "Entity\Entity.csproj", "{FD6B56C7-548B-4202-A965-A8B91BE4DCD8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entity", "Entity\Entity.csproj", "{FD6B56C7-548B-4202-A965-A8B91BE4DCD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{233F4783-0C11-461C-978A-07D916E12171}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{233F4783-0C11-461C-978A-07D916E12171}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoerUI", "ConsoerUI\ConsoerUI.csproj", "{9F0A33C2-7A87-42A1-BDE2-35D065A71037}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoerUI", "ConsoerUI\ConsoerUI.csproj", "{9F0A33C2-7A87-42A1-BDE2-35D065A71037}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{CD656B24-DA55-490B-AD25-87CB0D766031}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{CD656B24-DA55-490B-AD25-87CB0D766031}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PinderAPI", "PinderAPI\PinderAPI.csproj", "{54F624CF-DA44-4DEE-9560-14A722AD56E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{CD656B24-DA55-490B-AD25-87CB0D766031}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD656B24-DA55-490B-AD25-87CB0D766031}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD656B24-DA55-490B-AD25-87CB0D766031}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54F624CF-DA44-4DEE-9560-14A722AD56E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54F624CF-DA44-4DEE-9560-14A722AD56E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54F624CF-DA44-4DEE-9560-14A722AD56E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54F624CF-DA44-4DEE-9560-14A722AD56E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
