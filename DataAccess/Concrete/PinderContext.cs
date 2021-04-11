@@ -12,8 +12,8 @@ namespace DataAccess.Concrete
     {
        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseMySql("Server=93.89.238.98:8880;port=3306;Database=pinder;user=orhanardaduman;password='_yd3Qn11';");
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Pinder;Trusted_Connection=true");
+            optionsBuilder.UseMySql("Server=93.89.238.98:8880;port=3306;Database=pinder;user=orhanardaduman;password='_yd3Qn11';");
+           // optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Pinder;Trusted_Connection=true");
         }
     
         public DbSet<Post> Posts { get; set; }
