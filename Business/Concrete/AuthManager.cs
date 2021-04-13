@@ -34,6 +34,7 @@ namespace Business.Concrete
                 LastName = userForRegisterDto.LastName,
                 PasswordHash = passwordHash,
                 PasswordSalt = passwordSalt,
+                PhoneNumber = userForRegisterDto.PhoneNumber
             };
             _userService.Add(user);
             return new SuccessDataResult<User>(user, "Kayıt oldu");

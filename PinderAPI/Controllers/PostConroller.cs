@@ -19,17 +19,17 @@ namespace PinderAPI.Controllers
             _postService = postService;
         }
 
+        [HttpGet("getall")]
         public IActionResult GetAll()
         {
             //Swagger
             //Dependency chain --
-            Thread.Sleep(5000);
             var result = _postService.GetAll();
             if (result.Success)
             {
-                return Ok(result);
+                return Ok(result.Data);
             }
-            return BadRequest(result);
+            return BadRequest(result.Message);
 
         }
 

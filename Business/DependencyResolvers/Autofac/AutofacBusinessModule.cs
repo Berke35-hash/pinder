@@ -25,6 +25,8 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<JwtHelper>().As<ITokenHelper>();
 
             builder.RegisterType<CommentManager>().As<ICommentService>();
+            builder.RegisterType<PostManager>().As<IPostService>();
+            builder.RegisterType<EfPostDal>().As<IPostDal>();
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 
