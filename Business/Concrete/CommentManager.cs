@@ -9,10 +9,10 @@ using System.Text;
 
 namespace Business.Concrete
 {
-    class CommentManager : ICommentService
+    public class CommentManager : ICommentService
     {
         ICommentDal _commentDal;
-        CommentManager(ICommentDal commentDal)
+        public CommentManager(ICommentDal commentDal)
         {
             _commentDal = commentDal;
         }
