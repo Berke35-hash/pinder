@@ -15,7 +15,7 @@ namespace DataAccess.Concrete
         {
             using (PinderContext context = new PinderContext())
             {
-                var result = from p in context.Posts
+                var result = from p in context.Post
                              select new PostDTO
                              {
                                  Id = p.Id,
