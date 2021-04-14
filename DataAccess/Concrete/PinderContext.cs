@@ -12,13 +12,13 @@ namespace DataAccess.Concrete
     {
        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer("Server = 93.89.238.98; Database = orhanardaduman_; user = orhanardaduman; password = '_yd3Qn11'; ",
-                    builder => builder.EnableRetryOnFailure());
-            }
+            //if (!optionsBuilder.IsConfigured)
+            //{
+            //    optionsBuilder.UseSqlServer("Server = mssql.sadikturan.com(orhanardaduman_); Database = orhanardaduman_; user = orhanardaduman; password = '_yd3Qn11'; ",
+            //        builder => builder.EnableRetryOnFailure());
+            //}
 
-            //optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Pinder;Trusted_Connection=true");
+           optionsBuilder.UseMySql("Server = mssql.sadikturan.com; Database = orhanardaduman_; user = orhanardaduman; password = '_yd3Qn11'; ");
         }
     
         public DbSet<Post> Post { get; set; }

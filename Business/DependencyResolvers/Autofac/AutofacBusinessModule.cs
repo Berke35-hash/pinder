@@ -23,8 +23,10 @@ namespace Business.DependencyResolvers.Autofac
 
             builder.RegisterType<AuthManager>().As<IAuthService>();
             builder.RegisterType<JwtHelper>().As<ITokenHelper>();
-
+            //comment kısmını ekledim sıkıntı çıkmasın diye
             builder.RegisterType<CommentManager>().As<ICommentService>();
+            builder.RegisterType<EfCommentDal>().As<ICommentDal>();
+
             builder.RegisterType<PostManager>().As<IPostService>();
             builder.RegisterType<EfPostDal>().As<IPostDal>();
 
