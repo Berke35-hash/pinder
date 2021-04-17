@@ -18,7 +18,7 @@ namespace DataAccess.Concrete
                 var result = from p in context.Post
                              select new PostDTO
                              {
-                                 Id = p.Id,
+                                 
                                  PostName = p.PostName,
                                  Email = p.Email,
                                  Prize = p.Prize,

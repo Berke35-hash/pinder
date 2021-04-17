@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Autofac.Extras.DynamicProxy;
+using Microsoft.AspNetCore.Http;
 
 namespace Business.DependencyResolvers.Autofac
 {
@@ -29,6 +30,8 @@ namespace Business.DependencyResolvers.Autofac
 
             builder.RegisterType<PostManager>().As<IPostService>();
             builder.RegisterType<EfPostDal>().As<IPostDal>();
+
+            builder.RegisterType<HttpContextAccessor>().As<IHttpContextAccessor>();
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 
