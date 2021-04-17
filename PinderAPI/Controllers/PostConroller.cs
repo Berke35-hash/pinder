@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Entity.Concrete;
 
 namespace PinderAPI.Controllers
 {
@@ -31,6 +32,17 @@ namespace PinderAPI.Controllers
             }
             return BadRequest(result.Message);
 
+        }
+
+        [HttpPost("add")]
+        public IActionResult Add(Post post)
+        {
+            var result = _postService.Add(post);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
         }
 
     }

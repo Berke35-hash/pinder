@@ -22,10 +22,10 @@ namespace DataAccess.Concrete
         }
     
         public DbSet<Post> Post { get; set; }
-        public DbSet<Comment> Comments { get; set; }
-        public DbSet<User> Users { get; set; }
-        public DbSet<OperationClaim> OperationClaims { get; set; }
-        public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
+        public DbSet<Comment> Comment { get; set; }
+        public DbSet<User> User { get; set; }
+        public DbSet<OperationClaim> OperationClaim { get; set; }
+        public DbSet<UserOperationClaim> UserOperationClaim { get; set; }
         //"Server=93.89.238.98;Database=orhanardaduman_;user=orhanardaduman;password='_yd3Qn11';"
     }
 }

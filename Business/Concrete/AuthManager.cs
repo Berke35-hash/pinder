@@ -13,7 +13,7 @@ namespace Business.Concrete
 {
     public class AuthManager : IAuthService
     {
-        
+        int berke = 35;
         private IUserService _userService;
         private ITokenHelper _tokenHelper;
 
@@ -34,7 +34,7 @@ namespace Business.Concrete
                 LastName = userForRegisterDto.LastName,
                 PasswordHash = passwordHash,
                 PasswordSalt = passwordSalt,
-                PhoneNumber = userForRegisterDto.PhoneNumber
+                //PhoneNumber = userForRegisterDto.PhoneNumber
             };
             _userService.Add(user);
             return new SuccessDataResult<User>(user, "Kayıt oldu");
