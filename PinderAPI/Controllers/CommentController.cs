@@ -38,7 +38,7 @@ namespace PinderAPI.Controllers
             }
             return BadRequest(result.Message);
         }
-        [HttpPost("delete")]
+        [HttpDelete("delete/{id}")]
         public IActionResult Delete(Comment comment)
         {
             var result = _commentService.Delete(comment);

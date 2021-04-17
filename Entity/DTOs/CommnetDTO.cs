@@ -3,13 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Entity.Concrete
+namespace Entity.DTOs
 {
-    public class Comment:IEntity
+    public class CommentDTO:IDto
     {
-        public int Id{ get; set; }
         public string WriterName { get; set; }
-        public string PostComment { get; set; }
+        public string Description { get; set; }
 
     }
 }

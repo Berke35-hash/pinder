@@ -34,6 +34,7 @@ namespace Business.Concrete
                 LastName = userForRegisterDto.LastName,
                 PasswordHash = passwordHash,
                 PasswordSalt = passwordSalt,
+                Status = true
                 //PhoneNumber = userForRegisterDto.PhoneNumber
             };
             _userService.Add(user);
@@ -50,7 +51,7 @@ namespace Business.Concrete
 
             if (!HashingHelper.VerifyPasswordHash(userForLoginDto.Password, userToCheck.PasswordHash, userToCheck.PasswordSalt))
             {
-                return new ErrorDataResult<User>("Parola hatası");
+                return new ErrorDataResult<User>("Parola yanlış");
             }
 
             return new SuccessDataResult<User>(userToCheck, "Başarılı giriş");

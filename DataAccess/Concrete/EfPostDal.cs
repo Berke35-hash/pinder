@@ -11,7 +11,7 @@ namespace DataAccess.Concrete
 {
     public class EfPostDal: EfEntityRepositoryBase<Post, PinderContext>, IPostDal
     {
-        public List<PostDTO> GetProductDetails()
+        public List<PostDTO> GetPostDetails()
         {
             using (PinderContext context = new PinderContext())
             {
