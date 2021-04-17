@@ -38,16 +38,17 @@ namespace PinderAPI.Controllers
             }
             return BadRequest(result.Message);
         }
-        //[HttpGet("getbymail")]
-        //public IActionResult GetByMail(string email)
-        //{
-        //    var result = _userService.GetByMail(email);
-        //    if (result.)
-        //    {
-        //        return Ok(result);
-        //    }
-        //    return BadRequest(result);
-        //}
+        [HttpGet("getbymail")]
+        public User GetByMail(string email)
+        {
+            //bakarız
+            var result = _userService.GetByMail(email);
+            if (result!= _userService.GetByMail(email))
+            {
+                BadRequest(result);
+            }
+            return result;
+        }
         [HttpPost("Add")]
         public IActionResult Add(User user)
         {
