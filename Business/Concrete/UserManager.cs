@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
 using Core.Entities.Concrete;
+using Core.Utilities.Results.Abstract;
+using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
 using Entity.Concrete;
 using System;
@@ -16,38 +18,43 @@ namespace Business.Concrete
         {
             _userDal = userDal;
         }
-        public void Add(User user)
+        public IResult Add(User user)
         {
             _userDal.Add(user);
+            return new SuccessResult("user eklendi");
         }
 
-        public void Delete(User user)
+        public IResult Delete(User user)
         {
             _userDal.Delete(user);
+            return new SuccessResult("user silindi");
         }
 
-        public List<OperationClaim> GetClaims(User user)
+        public IDataResult<List<OperationClaim>> GetClaims(User user)
         {
-            return _userDal.GetClaims(user);
+            return new SuccessDataResult<List<OperationClaim>>(_userDal.GetClaims(user));
         }
 
-        public void GetByName(string name)
+        public IDataResult<User> GetByName(string name)
         {
-            _userDal.Get(p => p.FirstName == name);
+            
+            return new SuccessDataResult<User>(_userDal.Get(p => p.FirstName == name));
         }
 
-        public List<User> GetList()
+        public IDataResult<List<User>> GetAll()
         {
-            return _userDal.GetAll().ToList();
+            return new SuccessDataResult<List<User>>(_userDal.GetAll().ToList());
         }
 
-        public void Update(User user)
+        public IResult Update(User user)
         {
             _userDal.Update(user);
+            return new SuccessResult("başarıyla update edildi");
         }
-        public User GetByMail(string email)
+        public IDataResult<User> GetByMail(string email)
         {
-            return _userDal.Get(u => u.Email == email);
+
+            return new SuccessDataResult<User>(_userDal.Get(u => u.Email == email));
         }
     }
 }

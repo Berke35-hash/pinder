@@ -1,55 +1,57 @@
-﻿using Business.Abstract;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
+using Business.Abstract;
 using Entity.Concrete;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace PinderAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PostController : ControllerBase
+    public class UserController : ControllerBase
     {
-        IPostService _postService;
-        public PostController(IPostService postService)
+        IUserService _userService;
+        public UserController(IUserService userService) 
         {
-            _postService = postService;
+            _userService = userService;
         }
-
         [HttpGet("getall")]
-        public IActionResult GetAll()
+        public IActionResult GetAll() 
         {
-            //Swagger
-            //Dependency chain --
-            var result = _postService.GetAll();
+            var result = _userService.GetAll();
             if (result.Success)
             {
                 return Ok(result.Data);
             }
             return BadRequest(result.Message);
-
         }
-        [HttpGet("getbyid")]
-        public IActionResult GetById(int Id)
+        [HttpGet("getbyname")]
+        public IActionResult GetByName(string name)
         {
-            
-            var result = _postService.GetById(Id);
+            var result = _userService.GetByName(name);
             if (result.Success)
             {
                 return Ok(result.Data);
             }
             return BadRequest(result.Message);
-
         }
-
-        [HttpPost("add")]
-        public IActionResult Add(Post post)
+        [HttpGet("getbymail")]
+        public IActionResult GetByMail(string email)
         {
-            var result = _postService.Add(post);
+            var result = _userService.GetByMail(email);
+            if (result.Success)
+            {
+                return Ok(result.Data);
+            }
+            return BadRequest(result.Message);
+        }
+        [HttpPost("Add")]
+        public IActionResult Add(User user)
+        {
+            var result = _userService.Add(user);
             if (result.Success)
             {
                 return Ok(result.Message);
@@ -57,9 +59,9 @@ namespace PinderAPI.Controllers
             return BadRequest(result.Message);
         }
         [HttpPost("update")]
-        public IActionResult Update(Post post)
+        public IActionResult Update(User user)
         {
-            var result = _postService.Update(post);
+            var result = _userService.Update(user);
             if (result.Success)
             {
                 return Ok(result.Message);
@@ -67,9 +69,9 @@ namespace PinderAPI.Controllers
             return BadRequest(result.Message);
         }
         [HttpPost("delete")]
-        public IActionResult Delete(Post post)
+        public IActionResult Delete(User user)
         {
-            var result = _postService.Delete(post);
+            var result = _userService.Delete(user);
             if (result.Success)
             {
                 return Ok(result.Message);
