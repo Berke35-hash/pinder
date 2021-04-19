@@ -15,9 +15,11 @@ namespace Business.Concrete
     public class PostManager : IPostService
     {
         IPostDal _postDal;
-        public PostManager(IPostDal postDal)
+        IUserDal _userDal;
+        public PostManager(IPostDal postDal,IUserDal userDal)
         {
             _postDal = postDal;
+            _userDal = userDal;
         }
 
         [ValidationAspect(typeof(PostValidator))]
@@ -47,6 +49,11 @@ namespace Business.Concrete
         {
             _postDal.Update(post);
             return new SuccessResult("post başarıyla güncellendi");
+        }
+        public IDataResult<Post> GetByEmail(string email)
+        {
+
+            return new SuccessDataResult<Post>(_postDal.Get(u => u.Email == email));
         }
     }
 }
