@@ -14,9 +14,11 @@ namespace Business.Concrete
     class UserManager : IUserService
     {
         IUserDal _userDal;
-        public UserManager(IUserDal userDal)
+        IPostDal _postDal;
+        public UserManager(IUserDal userDal,IPostDal postDal)
         {
             _userDal = userDal;
+            _postDal = postDal;
         }
         public IResult Add(User user)
         {
@@ -56,5 +58,12 @@ namespace Business.Concrete
 
             return _userDal.Get(u => u.Email == email);
         }
+        //postumuzu user maili üzerinden açmamızı sağlıyor
+        public Post GetByUserMail(string email)
+        {
+
+            return _postDal.Get(u => u.Email == email);
+        }
+
     }
 }

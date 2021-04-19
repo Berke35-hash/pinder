@@ -49,6 +49,14 @@ namespace PinderAPI.Controllers
             }
             return result;
         }
+        //postumuzu user maili üzerinden açmamızı sağlıyor
+        [HttpGet("getpostbyusermail")]
+        public Post GetByUserMail(string email)
+        {
+            var result = _userService.GetByUserMail(email);
+            return result;
+
+        }
         [HttpPost("Add")]
         public IActionResult Add(User user)
         {
