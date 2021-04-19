@@ -19,19 +19,19 @@ namespace Business.Concrete
         public IResult Add(Comment comment)
         {
             _commentDal.Add(comment);
-            return new SuccessResult();
+            return new SuccessResult("comment başarılı bir şekilde eklendi");
         }
 
         public IResult Delete(Comment comment)
         {
             _commentDal.Delete(comment);
-            return new SuccessResult();
+            return new SuccessResult("comment başarılı bir şekilde silindi");
         }
 
         public IResult Update(Comment comment)
         {
             _commentDal.Update(comment);
-            return new SuccessResult();
+            return new SuccessResult("comment başarılı bir şekilde güncellendi");
         }
     }
 }

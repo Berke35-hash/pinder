@@ -30,7 +30,7 @@ namespace Business.Concrete
         public IResult Delete(Post post)
         {
             _postDal.Delete(post);
-            return new SuccessResult();
+            return new SuccessResult("post başarıyla silindi");
         }
 
         public IDataResult<Post> GetById(int postId)
@@ -46,7 +46,7 @@ namespace Business.Concrete
         public IResult Update(Post post)
         {
             _postDal.Update(post);
-            return new SuccessResult();
+            return new SuccessResult("post başarıyla güncellendi");
         }
     }
 }
