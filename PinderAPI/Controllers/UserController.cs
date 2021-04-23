@@ -43,7 +43,7 @@ namespace PinderAPI.Controllers
         {
             //bakarız
             var result = _userService.GetByMail(email);
-            if (result!= _userService.GetByMail(email))
+            if (result==null||result!= _userService.GetByMail(email))
             {
                 BadRequest(result);
             }
@@ -54,6 +54,10 @@ namespace PinderAPI.Controllers
         public Post GetByUserMail(string email)
         {
             var result = _userService.GetByUserMail(email);
+            if (result == null || result != _userService.GetByUserMail(email))
+            {
+                BadRequest(result);
+            }
             return result;
 
         }
