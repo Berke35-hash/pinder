@@ -8,9 +8,8 @@ namespace Entity.Concrete
     public class PostImage: IEntity
     {
         public int Id { get; set; }
-        public int PostId { get; set; }
-        public string ImagePath { get; set; }
-        public DateTime Date { get; set; }
+        public string ImageTitle { get; set; }
+        public byte[] ImageData { get; set; }
 
     }
 }

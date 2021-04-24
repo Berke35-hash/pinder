@@ -4,6 +4,7 @@ using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
+using DataAccess.Concrete;
 using Entity.Concrete;
 using System;
 using System.Collections.Generic;
@@ -16,10 +17,12 @@ namespace Business.Concrete
     {
         IPostDal _postDal;
         IUserDal _userDal;
-        public PostManager(IPostDal postDal,IUserDal userDal)
+        private readonly PinderContext _pinderContext;
+        public PostManager(IPostDal postDal,IUserDal userDal, PinderContext pinderContext)
         {
             _postDal = postDal;
             _userDal = userDal;
+            _pinderContext = pinderContext;
         }
 
         [ValidationAspect(typeof(PostValidator))]
@@ -54,6 +57,18 @@ namespace Business.Concrete
         {
 
             return new SuccessDataResult<Post>(_postDal.Get(u => u.Email == email));
+        }
+
+        public Post Save(Post post)
+        {
+            _pinderContext.Post.Add(post);
+            _pinderContext.SaveChanges();
+            return post;
+        }
+
+        public Post GetSavedStudent()
+        {
+            return _pinderContext.Post.SingleOrDefault();
         }
     }
 }

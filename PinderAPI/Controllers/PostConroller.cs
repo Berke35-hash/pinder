@@ -7,6 +7,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Entity.Concrete;
+using Business.Concrete;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace PinderAPI.Controllers
 {
@@ -87,6 +90,5 @@ namespace PinderAPI.Controllers
             return BadRequest(result.Message);
 
         }
-
     }
 }

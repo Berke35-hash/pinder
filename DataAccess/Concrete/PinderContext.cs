@@ -26,6 +26,7 @@ namespace DataAccess.Concrete
         public DbSet<User> User { get; set; }
         public DbSet<OperationClaim> OperationClaim { get; set; }
         public DbSet<UserOperationClaim> UserOperationClaim { get; set; }
+        public DbSet<PostImage> PostImage { get; set; }
         //"Server=93.89.238.98;Database=orhanardaduman_;user=orhanardaduman;password='_yd3Qn11';"
     }
 }

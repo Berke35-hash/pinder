@@ -7,11 +7,11 @@ using System.Text;
 
 namespace Business.Abstract
 {
-    public interface IPostImageService
-    {
-        IResult Add(IFormFile file, PostImage postImage);
-        IResult Delete(PostImage postImage);
-        IDataResult<PostImage> Get(int id);
-        IDataResult<List<PostImage>> GetAll();
-    }
+    //public interface IPostImageService
+    //{
+    //    IResult Add(IFormFile file, PostImage postImage);
+    //    IResult Delete(PostImage postImage);
+    //    IDataResult<PostImage> Get(int id);
+    //    IDataResult<List<PostImage>> GetAll();
+    //}
 }
