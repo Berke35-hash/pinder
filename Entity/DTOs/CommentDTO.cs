@@ -7,8 +7,9 @@ namespace Entity.DTOs
 {
     public class CommentDTO:IDto
     {
+       
         public string WriterName { get; set; }
-        public string Description { get; set; }
+        public string PostComment { get; set; }
 
     }
 }
