@@ -17,19 +17,18 @@ namespace Business.Concrete
     {
         IPostDal _postDal;
         IUserDal _userDal;
-        private readonly PinderContext _pinderContext;
-        public PostManager(IPostDal postDal,IUserDal userDal, PinderContext pinderContext)
+        
+        public PostManager(IPostDal postDal,IUserDal userDal)
         {
             _postDal = postDal;
             _userDal = userDal;
-            _pinderContext = pinderContext;
         }
 
         [ValidationAspect(typeof(PostValidator))]
         public IResult Add(Post post)
         {
             _postDal.Add(post);
-            return new SuccessResult();
+            return new SuccessResult("eklendi");
         }
 
         public IResult Delete(Post post)
@@ -57,18 +56,6 @@ namespace Business.Concrete
         {
 
             return new SuccessDataResult<Post>(_postDal.Get(u => u.Email == email));
-        }
-
-        public Post Save(Post post)
-        {
-            _pinderContext.Post.Add(post);
-            _pinderContext.SaveChanges();
-            return post;
-        }
-
-        public Post GetSavedStudent()
-        {
-            return _pinderContext.Post.SingleOrDefault();
         }
     }
 }

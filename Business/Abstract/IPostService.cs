@@ -14,8 +14,5 @@ namespace Business.Abstract
         IResult Add(Post post);
         IResult Update(Post post);
         IResult Delete(Post post);
-
-        Post Save(Post post);
-        Post GetSavedStudent();
     }
 }

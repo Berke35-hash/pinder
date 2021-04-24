@@ -33,14 +33,6 @@ namespace PinderAPI
             services.AddRazorPages();
             services.AddControllers();
             services.AddCors();
-            services.AddControllersWithViews().
-                AddJsonOptions(o =>
-                {
-                    o.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
-                    o.JsonSerializerOptions.PropertyNamingPolicy = null;
-                });
-
-
 
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 

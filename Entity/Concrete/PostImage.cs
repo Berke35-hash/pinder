@@ -1,4 +1,5 @@
 ﻿using Core.Entities;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,6 +10,7 @@ namespace Entity.Concrete
     {
         public int Id { get; set; }
         public string ImageTitle { get; set; }
+        [ModelBinder(BinderType = typeof(ImageToByteArrayModelBinder))]
         public byte[] ImageData { get; set; }
 
     }

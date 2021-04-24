@@ -31,6 +31,9 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<PostManager>().As<IPostService>();
             builder.RegisterType<EfPostDal>().As<IPostDal>();
 
+            builder.RegisterType<PostImageManager>().As<IPostImageService>();
+            builder.RegisterType<EfPostImageDal>().As<IPostImageDal>();
+
             builder.RegisterType<HttpContextAccessor>().As<IHttpContextAccessor>();
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
