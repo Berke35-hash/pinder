@@ -8,7 +8,9 @@ using Entity.Concrete;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
@@ -23,6 +25,7 @@ namespace Business.Concrete
 
         public IResult Add(PostImage postImage)
         {
+           
             _postImageDal.Add(postImage);
             return new SuccessResult("salak");
         }
@@ -54,5 +57,6 @@ namespace Business.Concrete
             //}
             return new SuccessResult();
         }
+       
     }
 }

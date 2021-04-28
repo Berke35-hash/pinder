@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -21,8 +22,9 @@ namespace PinderAPI.Controllers
 
 
         [HttpPost("uploadimage")]
-        public IActionResult UploadImage(PostImage postImage)
+        public IActionResult Add([FromForm]PostImage postImage)
         {
+            
             var result = _imageService.Add(postImage);
             if (result.Success)
             {
@@ -30,5 +32,8 @@ namespace PinderAPI.Controllers
             }
             return BadRequest(result.Message);
         }
+              
+
+       
     }
 }
