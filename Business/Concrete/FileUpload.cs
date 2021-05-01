@@ -7,8 +7,8 @@ namespace Business.Concrete
 {
     public class FileUpload
     {
-        public IFormFile file { get; set; }
-        public string Post { get; set; }
+        public IFormFile ImageData { get; set; }
+       // public string Post { get; set; }
 
     }
 }

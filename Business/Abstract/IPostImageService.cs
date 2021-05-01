@@ -13,5 +13,6 @@ namespace Business.Abstract
         IResult Delete(PostImage postImage);
         IDataResult<PostImage> Get(int id);
         IDataResult<List<PostImage>> GetAll();
+      
     }
 }

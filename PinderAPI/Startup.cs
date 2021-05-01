@@ -3,10 +3,12 @@ using Core.Extensions;
 using Core.Security.Encryption;
 using Core.Security.JWT;
 using Core.Utilities.IOC;
+using DataAccess.Concrete;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -33,6 +35,11 @@ namespace PinderAPI
             services.AddRazorPages();
             services.AddControllers();
             services.AddCors();
+
+            //services.AddDbContext<PinderContext>(o =>
+            //{
+            //    o.UseMySql("Server = mssql.sadikturan.com; Database = orhanardaduman_; user = orhanardaduman; password = '_yd3Qn11'; "); ;
+            //    });
 
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
