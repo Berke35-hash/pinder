@@ -12,7 +12,7 @@ namespace Business.ValidationsRules.FluentValidation
         public PostValidator()
         {
             RuleFor(p => p.PostName).NotEmpty();
-            RuleFor(p => p.PostName).MaximumLength(3);
+            RuleFor(p => p.PostName).MinimumLength(3);
             RuleFor(p => p.Location).NotEmpty();
             RuleFor(p => p.TelNo).NotEmpty();
         }
