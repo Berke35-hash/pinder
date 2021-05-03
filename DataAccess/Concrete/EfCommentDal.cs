@@ -18,9 +18,10 @@ namespace DataAccess.Concrete
                 var result = from p in context.Comment
                              select new CommentDTO
                              {
-                                
-                                 WriterName=p.WriterName,
-                                 PostComment= p.PostComment
+
+                                 WriterName = p.WriterName,
+                                 PostComment = p.PostComment,
+                                 UserId = p.UserId
                              };
                 return result.ToList();
             }

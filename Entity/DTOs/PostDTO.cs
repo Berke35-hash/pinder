@@ -17,6 +17,7 @@ namespace Entity.DTOs
         public string Comment { get; set; }
         public string TelNo { get; set; }
         public string Description { get; set; }
+        public int UserId { get; set; }
 
     }
 }

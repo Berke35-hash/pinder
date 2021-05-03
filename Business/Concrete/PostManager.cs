@@ -41,6 +41,10 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<Post>(_postDal.Get(p => p.Id == postId));
         }
+        public IDataResult<List<Post>> GetByUserId(int userId)
+        {
+            return new SuccessDataResult<List<Post>>(_postDal.GetAll(p=>p.UserId==userId).ToList());
+        }
 
         public IDataResult<List<Post>> GetAll()
         {

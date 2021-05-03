@@ -76,7 +76,7 @@ namespace PinderAPI.Controllers
             foreach (var file in Request.Form.Files)
             {
                 PostImage img = new PostImage();
-                img.ImageTitle = file.FileName;
+                //img.ImageTitle = file.FileName;
 
                 MemoryStream ms = new MemoryStream();
                 file.CopyTo(ms);

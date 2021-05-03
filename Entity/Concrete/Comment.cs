@@ -10,6 +10,6 @@ namespace Entity.Concrete
         public int Id{ get; set; }
         public string WriterName { get; set; }
         public string PostComment { get; set; }
-
+        public int UserId { get; set; }
     }
 }

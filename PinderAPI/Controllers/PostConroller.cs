@@ -90,5 +90,16 @@ namespace PinderAPI.Controllers
             return BadRequest(result.Message);
 
         }
+        [HttpGet("getpostbyuserid")]
+        public IActionResult GetbyUserMail(int userid)
+        {
+            var result = _postService.GetByUserId(userid);
+            if (result.Success)
+            {
+                return Ok(result.Data);
+            }
+            return BadRequest(result.Message);
+
+        }
     }
 }

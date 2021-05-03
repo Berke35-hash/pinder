@@ -25,7 +25,8 @@ namespace DataAccess.Concrete
                                  PostDate = p.PostDate,
                                  Comment = p.Comment,
                                  TelNo = p.TelNo,
-                                 Description = p.Description
+                                 Description = p.Description,
+                                 UserId=p.UserId
                              };
                 return result.ToList();
             }
