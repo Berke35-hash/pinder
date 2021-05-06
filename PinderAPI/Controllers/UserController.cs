@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Business.Abstract;
@@ -72,8 +73,19 @@ namespace PinderAPI.Controllers
             return BadRequest(result.Message);
         }
         [HttpPost("update")]
-        public IActionResult Update(User user)
+        public IActionResult Update([FromForm]User user)
         {
+            foreach (var file in Request.Form.Files)
+            {
+
+                MemoryStream ms = new MemoryStream();
+                file.CopyTo(ms);
+                user.UserImage = ms.ToArray();
+
+                ms.Close();
+                ms.Dispose();
+
+            }
             var result = _userService.Update(user);
             if (result.Success)
             {

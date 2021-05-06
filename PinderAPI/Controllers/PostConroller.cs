@@ -50,8 +50,19 @@ namespace PinderAPI.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult Add(Post post)
+        public IActionResult Add([FromForm]Post post)
         {
+            foreach (var file in Request.Form.Files)
+            {
+               
+                MemoryStream ms = new MemoryStream();
+                file.CopyTo(ms);
+                post.PostImage = ms.ToArray();
+
+                ms.Close();
+                ms.Dispose();
+              
+            }
             var result = _postService.Add(post);
             if (result.Success)
             {

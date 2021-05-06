@@ -71,11 +71,11 @@ namespace PinderAPI.Controllers
         //    return BadRequest(result.Message);
         //}
         [HttpPost("upload")]
-        public IActionResult UploadImage()
+        public IActionResult UploadImage([FromForm]PostImage img)
         {
             foreach (var file in Request.Form.Files)
             {
-                PostImage img = new PostImage();
+                //PostImage img = new PostImage();
                 //img.ImageTitle = file.FileName;
 
                 MemoryStream ms = new MemoryStream();
@@ -84,11 +84,15 @@ namespace PinderAPI.Controllers
 
                 ms.Close();
                 ms.Dispose();
-
-                _imageService.Add(img);
+                //_imageService.Add(img);
                 //_imageService.SaveChanges();
             }
-            return Ok("image yüklendi");
+            var result= _imageService.Add(img);
+            if (result.Success)
+            {
+                return Ok(result.Message);
+            }
+            return BadRequest(result.Message);
         }
         [HttpGet("retrive")]
         public ActionResult RetrieveImage(int Id)

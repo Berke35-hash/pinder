@@ -26,7 +26,8 @@ namespace DataAccess.Concrete
                                  Comment = p.Comment,
                                  TelNo = p.TelNo,
                                  Description = p.Description,
-                                 UserId=p.UserId
+                                 UserId=p.UserId,
+                                 PostImage=p.PostImage
                              };
                 return result.ToList();
             }
