@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -38,8 +39,19 @@ namespace PinderAPI.Controllers
         }
 
         [HttpPost("register")]
-        public ActionResult Register(UserForRegisterDTO userForRegisterDto)
+        public ActionResult Register([FromForm]UserForRegisterDTO userForRegisterDto)
         {
+            foreach (var file in Request.Form.Files)
+            {
+
+                MemoryStream ms = new MemoryStream();
+                file.CopyTo(ms);
+                userForRegisterDto.UserImage = ms.ToArray();
+
+                ms.Close();
+                ms.Dispose();
+
+            }
             var userExists = _authService.UserExists(userForRegisterDto.Email);
             if (!userExists.Success)
             {

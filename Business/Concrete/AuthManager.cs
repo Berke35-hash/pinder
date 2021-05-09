@@ -34,6 +34,7 @@ namespace Business.Concrete
                 LastName = userForRegisterDto.LastName,
                 PasswordHash = passwordHash,
                 PasswordSalt = passwordSalt,
+                UserImage = userForRegisterDto.UserImage,
                 Status = true
                 //PhoneNumber = userForRegisterDto.PhoneNumber
             };
