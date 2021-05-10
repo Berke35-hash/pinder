@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
@@ -19,19 +20,19 @@ namespace Business.Concrete
         public IResult Add(Comment comment)
         {
             _commentDal.Add(comment);
-            return new SuccessResult("comment başarılı bir şekilde eklendi");
+            return new SuccessResult(Messages.CommnetAdded);
         }
 
         public IResult Delete(Comment comment)
         {
             _commentDal.Delete(comment);
-            return new SuccessResult("comment başarılı bir şekilde silindi");
+            return new SuccessResult(Messages.CommnetDeleted);
         }
 
         public IResult Update(Comment comment)
         {
             _commentDal.Update(comment);
-            return new SuccessResult("comment başarılı bir şekilde güncellendi");
+            return new SuccessResult(Messages.CommnetUpdated);
         }
     }
 }

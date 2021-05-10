@@ -1,6 +1,8 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Business.ValidationsRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
+using Core.Utilities.Business;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
@@ -27,14 +29,19 @@ namespace Business.Concrete
         [ValidationAspect(typeof(PostValidator))]
         public IResult Add(Post post)
         {
+            IResult result = BusinessRules.Run(CheckIfPostNameExists(post.PostName));
+            if (result != null)
+            {
+                return result;
+            }
             _postDal.Add(post);
-            return new SuccessResult("eklendi");
+            return new SuccessResult(Messages.PostAdded);
         }
 
         public IResult Delete(Post post)
         {
             _postDal.Delete(post);
-            return new SuccessResult("post başarıyla silindi");
+            return new SuccessResult(Messages.PostDeleted);
         }
 
         public IDataResult<Post> GetById(int postId)
@@ -53,13 +60,27 @@ namespace Business.Concrete
 
         public IResult Update(Post post)
         {
+            IResult result = BusinessRules.Run(CheckIfPostNameExists(post.PostName));
+            if (result != null)
+            {
+                return result;
+            }
             _postDal.Update(post);
-            return new SuccessResult("post başarıyla güncellendi");
+            return new SuccessResult(Messages.PostUpdated);
         }
         public IDataResult<Post> GetByEmail(string email)
         {
 
             return new SuccessDataResult<Post>(_postDal.Get(u => u.Email == email));
+        }
+        private IResult CheckIfPostNameExists(string postName)
+        {
+            var result = _postDal.GetAll(p => p.PostName == postName).Any();
+            if (result)
+            {
+                return new ErrorResult(Messages.ProductNameAlreadyExists);
+            }
+            return new SuccessResult();
         }
     }
 }

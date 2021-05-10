@@ -18,7 +18,6 @@ namespace Business.DependencyResolvers.Autofac
     {
         protected override void Load(ContainerBuilder builder)
         {
-            int a = 5;
             builder.RegisterType<UserManager>().As<IUserService>();
             builder.RegisterType<EfUserDal>().As<IUserDal>();
 
@@ -31,8 +30,8 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<PostManager>().As<IPostService>();
             builder.RegisterType<EfPostDal>().As<IPostDal>();
 
-            builder.RegisterType<PostImageManager>().As<IPostImageService>();
-            builder.RegisterType<EfPostImageDal>().As<IPostImageDal>();
+            //builder.RegisterType<PostImageManager>().As<IPostImageService>();
+            //builder.RegisterType<EfPostImageDal>().As<IPostImageDal>();
 
             builder.RegisterType<HttpContextAccessor>().As<IHttpContextAccessor>();
 

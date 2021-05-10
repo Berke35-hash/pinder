@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Core.Entities.Concrete;
+using Core.Utilities.Business;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
@@ -23,13 +25,13 @@ namespace Business.Concrete
         public IResult Add(User user)
         {
             _userDal.Add(user);
-            return new SuccessResult("user eklendi");
+            return new SuccessResult(Messages.UserAdded);
         }
 
         public IResult Delete(User user)
         {
             _userDal.Delete(user);
-            return new SuccessResult("user silindi");
+            return new SuccessResult(Messages.UserDeleted);
         }
 
         public List<OperationClaim> GetClaims(User user)
@@ -39,7 +41,6 @@ namespace Business.Concrete
 
         public IDataResult<User> GetByName(string name)
         {
-            
             return new SuccessDataResult<User>(_userDal.Get(p => p.FirstName == name));
         }
 
@@ -51,11 +52,10 @@ namespace Business.Concrete
         public IResult Update(User user)
         {
             _userDal.Update(user);
-            return new SuccessResult("başarıyla update edildi");
+            return new SuccessResult(Messages.UserUpdated);
         }
         public User GetByMail(string email)
         {
-
             return _userDal.Get(u => u.Email == email);
         }
         //postumuzu user maili üzerinden açmamızı sağlıyor
@@ -64,6 +64,5 @@ namespace Business.Concrete
 
             return _postDal.Get(u => u.Email == email);
         }
-
     }
 }
