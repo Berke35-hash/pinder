@@ -32,7 +32,7 @@ namespace PinderAPI.Controllers
             var result = _authService.CreateAccessToken(userToLogin.Data);
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(userToLogin.Data.Id);
             }
 
             return BadRequest(result.Message);
