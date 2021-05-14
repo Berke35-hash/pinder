@@ -11,5 +11,6 @@ namespace Entity.DTOs
         public string WriterName { get; set; }
         public string PostComment { get; set; }
         public int UserId { get; set; }
+        public int PostId { get; set; }
     }
 }
