@@ -35,8 +35,9 @@ namespace Business.Concrete
                 PasswordHash = passwordHash,
                 PasswordSalt = passwordSalt,
                 UserImage = userForRegisterDto.UserImage,
-                Status = true
-                //PhoneNumber = userForRegisterDto.PhoneNumber
+                Status = true,
+                //phone number sonradan eklendi
+                PhoneNumber = userForRegisterDto.PhoneNumber
             };
             _userService.Add(user);
             return new SuccessDataResult<User>(user, "Kayıt oldu");

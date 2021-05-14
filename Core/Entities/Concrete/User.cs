@@ -15,7 +15,7 @@ namespace Entity.Concrete
         public byte[] PasswordHash { get; set; }
         public bool Status { get; set; }
        public byte[] UserImage { get; set; }
-        
+        public string PhoneNumber { get; set; }
 
     }
 }

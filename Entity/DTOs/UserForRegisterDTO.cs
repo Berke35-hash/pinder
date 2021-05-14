@@ -12,7 +12,8 @@ namespace Entity.DTOs
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public byte[] UserImage { get; set; }
-        //public int PhoneNumber { get; set; }
+        //telno eklendi
+        public string PhoneNumber { get; set; }
 
     }
 }

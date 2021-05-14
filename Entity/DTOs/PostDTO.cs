@@ -19,6 +19,6 @@ namespace Entity.DTOs
         public string Description { get; set; }
         public int UserId { get; set; }
         public byte[] PostImage { get; set; }
-
+        //public bool isTelVisible { get; set; }
     }
 }

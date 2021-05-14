@@ -27,7 +27,8 @@ namespace DataAccess.Concrete
                                  //TelNo = p.TelNo,
                                  Description = p.Description,
                                  UserId=p.UserId,
-                                 PostImage=p.PostImage
+                                 PostImage=p.PostImage,
+                                 //isTelVisible=p.isTelVisible
                              };
                 return result.ToList();
             }
