@@ -68,11 +68,11 @@ namespace Business.Concrete
             _postDal.Update(post);
             return new SuccessResult(Messages.PostUpdated);
         }
-        public IDataResult<Post> GetByEmail(string email)
-        {
+        //public IDataResult<Post> GetByEmail(string email)
+        //{
 
-            return new SuccessDataResult<Post>(_postDal.Get(u => u.Email == email));
-        }
+        //    return new SuccessDataResult<Post>(_postDal.Get(u => u.Email == email));
+        //}
         private IResult CheckIfPostNameExists(string postName)
         {
             var result = _postDal.GetAll(p => p.PostName == postName).Any();

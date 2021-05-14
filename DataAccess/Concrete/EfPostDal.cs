@@ -20,11 +20,11 @@ namespace DataAccess.Concrete
                              {
                                  
                                  PostName = p.PostName,
-                                 Email = p.Email,
+                                 //Email = p.Email,
                                  Prize = p.Prize,
-                                 PostDate = p.PostDate,
-                                 Comment = p.Comment,
-                                 TelNo = p.TelNo,
+                                 //PostDate = p.PostDate,
+                                 //Comment = p.Comment,
+                                 //TelNo = p.TelNo,
                                  Description = p.Description,
                                  UserId=p.UserId,
                                  PostImage=p.PostImage

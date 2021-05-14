@@ -50,18 +50,29 @@ namespace PinderAPI.Controllers
             }
             return result;
         }
-        //postumuzu user maili üzerinden açmamızı sağlıyor
-        [HttpGet("getpostbyusermail")]
-        public Post GetByUserMail(string email)
+        [HttpGet("getbyid")]
+        public User GetById(int Id)
         {
-            var result = _userService.GetByUserMail(email);
-            if (result == null || result != _userService.GetByUserMail(email))
+           
+            var result = _userService.GetById(Id);
+            if (result == null || result != _userService.GetById(Id))
             {
                 BadRequest(result);
             }
             return result;
-
         }
+        //postumuzu user maili üzerinden açmamızı sağlıyor
+        //[HttpGet("getpostbyusermail")]
+        //public Post GetByUserMail(string email)
+        //{
+        //    var result = _userService.GetByUserMail(email);
+        //    if (result == null || result != _userService.GetByUserMail(email))
+        //    {
+        //        BadRequest(result);
+        //    }
+        //    return result;
+
+        //}
         [HttpPost("Add")]
         public IActionResult Add(User user)
         {

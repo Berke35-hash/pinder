@@ -13,8 +13,8 @@ namespace Business.ValidationsRules.FluentValidation
         {
             RuleFor(p => p.PostName).NotEmpty();
             RuleFor(p => p.PostName).MinimumLength(3);
-            RuleFor(p => p.Location).NotEmpty();
-            RuleFor(p => p.TelNo).NotEmpty();
+            //RuleFor(p => p.Location).NotEmpty();
+            //RuleFor(p => p.TelNo).NotEmpty();
         }
     }
 }

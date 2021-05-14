@@ -16,7 +16,8 @@ namespace Business.Abstract
         IDataResult<List<User>> GetAll();
         IDataResult <User> GetByName(string name);
         //postumuzu user maili üzerinden açmamızı sağlıyor
-        Post GetByUserMail(string userMail);
+        //Post GetByUserMail(string userMail);
         User GetByMail(string email);
+        User GetById(int Id);
     }
 }

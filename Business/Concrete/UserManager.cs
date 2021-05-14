@@ -58,11 +58,15 @@ namespace Business.Concrete
         {
             return _userDal.Get(u => u.Email == email);
         }
-        //postumuzu user maili üzerinden açmamızı sağlıyor
-        public Post GetByUserMail(string email)
+        public User GetById(int Id)
         {
-
-            return _postDal.Get(u => u.Email == email);
+            return _userDal.Get(u => u.Id == Id);
         }
+        //postumuzu user maili üzerinden açmamızı sağlıyor
+        //public Post GetByUserMail(string email)
+        //{
+
+        //    return _postDal.Get(u => u.Email == email);
+        //}
     }
 }
