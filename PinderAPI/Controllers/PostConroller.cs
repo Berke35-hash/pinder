@@ -64,6 +64,7 @@ namespace PinderAPI.Controllers
               
             }
             var result = _postService.Add(post);
+            Convert.ToBase64String(post.PostImage);
             if (result.Success)
             {
                 return Ok(result.Message);
@@ -124,7 +125,7 @@ namespace PinderAPI.Controllers
 
         //}
         [HttpGet("getpostbyuserid")]
-        public IActionResult GetbyUserMail(int userid)
+        public IActionResult GetbyUserId(int userid)
         {
             var result = _postService.GetByUserId(userid);
             if (result.Success)

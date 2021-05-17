@@ -19,11 +19,12 @@ namespace Business.Concrete
     {
         IPostDal _postDal;
         IUserDal _userDal;
-        
+       
         public PostManager(IPostDal postDal,IUserDal userDal)
         {
             _postDal = postDal;
             _userDal = userDal;
+            
         }
 
         [ValidationAspect(typeof(PostValidator))]
