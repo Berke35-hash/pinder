@@ -18,9 +18,11 @@ namespace PinderAPI.Controllers
     public class PostController : ControllerBase
     {
         IPostService _postService;
-        public PostController(IPostService postService)
+        ICommentService _commentService;
+        public PostController(IPostService postService,ICommentService commentService)
         {
             _postService = postService;
+            _commentService = commentService;
         }
 
         [HttpGet("getall")]
@@ -64,6 +66,7 @@ namespace PinderAPI.Controllers
               
             }
             var result = _postService.Add(post);
+            //convert işlemi
             Convert.ToBase64String(post.PostImage);
             if (result.Success)
             {
@@ -86,6 +89,8 @@ namespace PinderAPI.Controllers
 
             }
             var result = _postService.Update(post);
+            //convert işlemi
+            Convert.ToBase64String(post.PostImage);
             if (result.Success)
             {
                 return Ok(result.Message);
@@ -107,6 +112,8 @@ namespace PinderAPI.Controllers
 
             }
             var result = _postService.Delete(post);
+            //convert işlemi
+            Convert.ToBase64String(post.PostImage);
             if (result.Success)
             {
                 return Ok(result.Message);
@@ -128,6 +135,17 @@ namespace PinderAPI.Controllers
         public IActionResult GetbyUserId(int userid)
         {
             var result = _postService.GetByUserId(userid);
+            if (result.Success)
+            {
+                return Ok(result.Data);
+            }
+            return BadRequest(result.Message);
+
+        }
+        [HttpGet("getcommentbypostid")]
+        public IActionResult GetbyPostId(int postid)
+        {
+            var result = _commentService.GetByPostId(postid);
             if (result.Success)
             {
                 return Ok(result.Data);

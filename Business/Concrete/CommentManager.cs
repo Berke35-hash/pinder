@@ -34,5 +34,9 @@ namespace Business.Concrete
             _commentDal.Update(comment);
             return new SuccessResult(Messages.CommnetUpdated);
         }
+        public IDataResult<List<Comment>> GetByPostId(int postId) 
+        {
+            return new SuccessDataResult<List<Comment>>(_commentDal.GetAll(p=>p.PostId==postId));
+        }
     }
 }

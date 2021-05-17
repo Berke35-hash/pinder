@@ -11,6 +11,7 @@ namespace Business.Abstract
         IResult Add(Comment comment);
         IResult Update(Comment comment);
         IResult Delete(Comment comment);
+        IDataResult<List<Comment>> GetByPostId(int PostId);
 
     }
 }

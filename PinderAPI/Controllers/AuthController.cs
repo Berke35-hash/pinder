@@ -60,6 +60,8 @@ namespace PinderAPI.Controllers
 
             var registerResult = _authService.Register(userForRegisterDto, userForRegisterDto.Password);
             var result = _authService.CreateAccessToken(registerResult.Data);
+            //convert işlemi
+            Convert.ToBase64String(userForRegisterDto.UserImage);
             if (result.Success)
             {
                 return Ok(result.Data);
@@ -67,6 +69,35 @@ namespace PinderAPI.Controllers
 
             return BadRequest(result.Message);
         }
+        [HttpPost("update")]
+        public ActionResult Update([FromForm] UserForRegisterDTO userForRegisterDto)
+        {
+            foreach (var file in Request.Form.Files)
+            {
 
+                MemoryStream ms = new MemoryStream();
+                file.CopyTo(ms);
+                userForRegisterDto.UserImage = ms.ToArray();
+
+                ms.Close();
+                ms.Dispose();
+
+            }
+            //var userExists = _authService.UserExists(userForRegisterDto.Email);
+            //if (!userExists.Success)
+            //{
+            //    return BadRequest(userExists.Message);
+            //}
+            //convert işlemi
+            Convert.ToBase64String(userForRegisterDto.UserImage);
+            var registerResult = _authService.Update(userForRegisterDto, userForRegisterDto.Password);
+            var result = _authService.CreateAccessToken(registerResult.Data);
+            if (result.Success)
+            {
+                return Ok(result.Data);
+            }
+
+            return BadRequest(result.Message);
+        }
     }
 }
