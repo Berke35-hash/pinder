@@ -46,7 +46,7 @@ namespace PinderAPI.Controllers
 
                 MemoryStream ms = new MemoryStream();
                 file.CopyTo(ms);
-                userForRegisterDto.UserImage = ms.ToArray();
+                userForRegisterDto.UserImage = ms.ToString();
 
                 ms.Close();
                 ms.Dispose();
@@ -61,7 +61,7 @@ namespace PinderAPI.Controllers
             var registerResult = _authService.Register(userForRegisterDto, userForRegisterDto.Password);
             var result = _authService.CreateAccessToken(registerResult.Data);
             //convert işlemi
-            Convert.ToBase64String(userForRegisterDto.UserImage);
+            //Convert.ToBase64String(userForRegisterDto.UserImage);
             if (result.Success)
             {
                 return Ok(result.Data);
@@ -77,7 +77,7 @@ namespace PinderAPI.Controllers
 
                 MemoryStream ms = new MemoryStream();
                 file.CopyTo(ms);
-                userForRegisterDto.UserImage = ms.ToArray();
+                userForRegisterDto.UserImage = ms.ToString();
 
                 ms.Close();
                 ms.Dispose();
@@ -89,7 +89,7 @@ namespace PinderAPI.Controllers
             //    return BadRequest(userExists.Message);
             //}
             //convert işlemi
-            Convert.ToBase64String(userForRegisterDto.UserImage);
+           // Convert.ToBase64String(userForRegisterDto.UserImage);
             var registerResult = _authService.Update(userForRegisterDto, userForRegisterDto.Password);
             var result = _authService.CreateAccessToken(registerResult.Data);
             if (result.Success)
