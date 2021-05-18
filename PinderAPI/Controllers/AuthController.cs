@@ -64,7 +64,7 @@ namespace PinderAPI.Controllers
             //Convert.ToBase64String(userForRegisterDto.UserImage);
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(registerResult.Data.Id);
             }
 
             return BadRequest(result.Message);
