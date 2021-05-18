@@ -59,7 +59,7 @@ namespace PinderAPI.Controllers
                
                 MemoryStream ms = new MemoryStream();
                 file.CopyTo(ms);
-                post.PostImage = ms.ToArray();
+                post.PostImage = ms.ToString();
 
                 ms.Close();
                 ms.Dispose();
@@ -67,7 +67,7 @@ namespace PinderAPI.Controllers
             }
             var result = _postService.Add(post);
             //convert işlemi
-            Convert.ToBase64String(post.PostImage);
+            //Convert.ToBase64String(post.PostImage);
             if (result.Success)
             {
                 return Ok(result.Message);
@@ -82,7 +82,7 @@ namespace PinderAPI.Controllers
 
                 MemoryStream ms = new MemoryStream();
                 file.CopyTo(ms);
-                post.PostImage = ms.ToArray();
+                post.PostImage = ms.ToString();
 
                 ms.Close();
                 ms.Dispose();
@@ -90,7 +90,7 @@ namespace PinderAPI.Controllers
             }
             var result = _postService.Update(post);
             //convert işlemi
-            Convert.ToBase64String(post.PostImage);
+            //Convert.ToBase64String(post.PostImage);
             if (result.Success)
             {
                 return Ok(result.Message);
@@ -105,7 +105,7 @@ namespace PinderAPI.Controllers
 
                 MemoryStream ms = new MemoryStream();
                 file.CopyTo(ms);
-                post.PostImage = ms.ToArray();
+                post.PostImage = ms.ToString();
 
                 ms.Close();
                 ms.Dispose();
@@ -113,7 +113,7 @@ namespace PinderAPI.Controllers
             }
             var result = _postService.Delete(post);
             //convert işlemi
-            Convert.ToBase64String(post.PostImage);
+            //Convert.ToBase64String(post.PostImage);
             if (result.Success)
             {
                 return Ok(result.Message);
