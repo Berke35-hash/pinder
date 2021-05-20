@@ -120,17 +120,17 @@ namespace PinderAPI.Controllers
             }
             return BadRequest(result.Message);
         }
-        //[HttpGet("getbymail")]
-        //public IActionResult GetbyMail(string email)
-        //{
-        //    var result = _postService.GetByEmail(email);
-        //    if (result.Success)
-        //    {
-        //        return Ok(result.Data);
-        //    }
-        //    return BadRequest(result.Message);
+        [HttpGet("getbypostname")]
+        public IActionResult GetbyName(string name)
+        {
+            var result = _postService.GetByPostName(name);
+            if (result.Success)
+            {
+                return Ok(result.Data);
+            }
+            return BadRequest(result.Message);
 
-        //}
+        }
         [HttpGet("getpostbyuserid")]
         public IActionResult GetbyUserId(int userid)
         {

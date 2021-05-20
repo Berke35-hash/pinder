@@ -58,6 +58,10 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<Post>>(_postDal.GetAll().ToList());
         }
+        public IDataResult<List<Post>> GetByPostName(string postName)
+        {
+            return new SuccessDataResult<List<Post>>(_postDal.GetAll(p=>p.PostName==postName).ToList());
+        }
 
         public IResult Update(Post post)
         {
