@@ -87,5 +87,9 @@ namespace Business.Concrete
             }
             return new SuccessResult();
         }
+        public IDataResult<User> GetImageByUser(int userId) 
+        {
+           return  new SuccessDataResult<User>(_userDal.Get(u => u.Id == userId));
+        }
     }
 }

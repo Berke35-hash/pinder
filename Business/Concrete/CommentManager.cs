@@ -13,9 +13,11 @@ namespace Business.Concrete
     public class CommentManager : ICommentService
     {
         ICommentDal _commentDal;
-        public CommentManager(ICommentDal commentDal)
+        IUserDal _userDal;
+        public CommentManager(ICommentDal commentDal,IUserDal userDal)
         {
             _commentDal = commentDal;
+            _userDal = userDal;
         }
         public IResult Add(Comment comment)
         {
@@ -37,6 +39,10 @@ namespace Business.Concrete
         public IDataResult<List<Comment>> GetByPostId(int postId) 
         {
             return new SuccessDataResult<List<Comment>>(_commentDal.GetAll(p=>p.PostId==postId));
+        }
+        public IDataResult<User> GetImageByUser(int userId)
+        {
+            return new SuccessDataResult<User>(_userDal.Get(u => u.Id == userId));
         }
     }
 }

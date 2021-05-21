@@ -12,6 +12,7 @@ namespace Business.Abstract
         IResult Update(Comment comment);
         IResult Delete(Comment comment);
         IDataResult<List<Comment>> GetByPostId(int PostId);
+        IDataResult<User> GetImageByUser(int UserId);
 
     }
 }

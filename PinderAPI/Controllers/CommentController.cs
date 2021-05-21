@@ -48,5 +48,16 @@ namespace PinderAPI.Controllers
             }
             return BadRequest(result.Message);
         }
+        [HttpGet("getimagebyuserid")]
+        public IActionResult GetImagebyUserId(int userid)
+        {
+            var result = _commentService.GetImageByUser(userid);
+            if (result.Success)
+            {
+                return Ok(result.Data.UserImage);
+            }
+            return BadRequest(result.Message);
+
+        }
     }
 }
