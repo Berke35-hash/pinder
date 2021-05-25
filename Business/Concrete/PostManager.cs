@@ -30,7 +30,7 @@ namespace Business.Concrete
         [ValidationAspect(typeof(PostValidator))]
         public IResult Add(Post post)
         {
-            IResult result = BusinessRules.Run(CheckIfPostNameExists(post.PostName));
+            IResult result = BusinessRules.Run(CheckIfPostNameExists(post.Id));
             if (result != null)
             {
                 return result;
@@ -65,7 +65,7 @@ namespace Business.Concrete
 
         public IResult Update(Post post)
         {
-            IResult result = BusinessRules.Run(CheckIfPostNameExists(post.PostName));
+            IResult result = BusinessRules.Run(CheckIfPostNameExists(post.Id));
             if (result != null)
             {
                 return result;
@@ -78,9 +78,9 @@ namespace Business.Concrete
 
         //    return new SuccessDataResult<Post>(_postDal.Get(u => u.Email == email));
         //}
-        private IResult CheckIfPostNameExists(string postName)
+        private IResult CheckIfPostNameExists(int postId)
         {
-            var result = _postDal.GetAll(p => p.PostName == postName).Any();
+            var result = _postDal.GetAll(p => p.Id == postId).Any();
             if (result)
             {
                 return new ErrorResult(Messages.ProductNameAlreadyExists);

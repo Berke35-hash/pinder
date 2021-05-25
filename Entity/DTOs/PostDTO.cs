@@ -9,7 +9,7 @@ namespace Entity.DTOs
     public class PostDTO:IDto
     {
        
-        public string PostName { get; set; }
+        //public string PostName { get; set; }
         //public string  Email{ get; set; }
         public string Prize { get; set; }
        // public string Location { get; set; }

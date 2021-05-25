@@ -19,7 +19,7 @@ namespace DataAccess.Concrete
                              select new PostDTO
                              {
                                  
-                                 PostName = p.PostName,
+                                 //PostName = p.PostName,
                                  //Email = p.Email,
                                  Prize = p.Prize,
                                  //PostDate = p.PostDate,
