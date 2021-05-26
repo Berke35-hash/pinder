@@ -19,7 +19,7 @@ namespace DataAccess.Concrete
                              select new CommentDTO
                              {
 
-                                 WriterName = p.WriterName,
+                                 //WriterName = p.WriterName,
                                  PostComment = p.PostComment,
                                  UserId = p.UserId
                              };
