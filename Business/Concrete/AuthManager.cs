@@ -76,23 +76,50 @@ namespace Business.Concrete
         }
         public IDataResult<User> Update(UserForRegisterDTO userForRegisterDto, string password)
         {
+            var user = new User();
+            var result = _userService.GetById(userForRegisterDto.Id);
             byte[] passwordHash, passwordSalt;
-            HashingHelper.CreatePasswordHash(password, out passwordHash, out passwordSalt);
-            var user = new User
+           
+            if (password!=null)
             {
-                Id = userForRegisterDto.Id,
-                Email = userForRegisterDto.Email,
-                FirstName = userForRegisterDto.FirstName,
-                LastName = userForRegisterDto.LastName,
-                PasswordHash = passwordHash,
-                PasswordSalt = passwordSalt,
-                UserImage = userForRegisterDto.UserImage,
-                Status = true,
-                //phone number sonradan eklendi
-                PhoneNumber = userForRegisterDto.PhoneNumber
-            };
+                HashingHelper.CreatePasswordHash(password, out passwordHash, out passwordSalt);
+                user = new User
+                {
+                    Id = userForRegisterDto.Id,
+                    Email = userForRegisterDto.Email,
+                    FirstName = userForRegisterDto.FirstName,
+                    LastName = userForRegisterDto.LastName,
+                    PasswordHash = passwordHash,
+                    PasswordSalt = passwordSalt,
+                    UserImage = userForRegisterDto.UserImage,
+                    Status = true,
+                    //phone number sonradan eklendi
+                    PhoneNumber = userForRegisterDto.PhoneNumber
+                };
+            }
+            else
+            {
+                user = new User
+                {
+                    Id = userForRegisterDto.Id,
+                    Email = userForRegisterDto.Email!=null?userForRegisterDto.Email:result.Email,
+                    FirstName = userForRegisterDto.FirstName !=null ? userForRegisterDto.FirstName : result.FirstName,
+                    LastName = userForRegisterDto.LastName != null ? userForRegisterDto.LastName : result.LastName,
+                    PasswordHash = result.PasswordHash,
+                    PasswordSalt = result.PasswordSalt,
+                    UserImage = userForRegisterDto.UserImage != null ? userForRegisterDto.UserImage : result.UserImage,
+                    Status = true,
+                    //phone number sonradan eklendi
+                    PhoneNumber = userForRegisterDto.PhoneNumber != null ? userForRegisterDto.PhoneNumber : result.PhoneNumber
+                };
+               
+            }
+           
+
+
+
             _userService.Update(user);
-            return new SuccessDataResult<User>(user, "Update oldu");
+            return new SuccessDataResult<User>(user, userForRegisterDto.PhoneNumber);
         }
     }
 }
